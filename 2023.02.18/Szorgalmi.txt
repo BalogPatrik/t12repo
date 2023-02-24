@@ -1,0 +1,244 @@
+<script>
+
+const EuropaiUnio = [{
+        orszag: "Ausztria",
+        csatlakozas: "1995.01.01"
+    },
+    {
+        orszag: "Belgium",
+        csatlakozas: "1958.01.01"
+    },
+    {
+        orszag: "Bulgária",
+        csatlakozas: "2007.01.01"
+    },
+    {
+        orszag: "Ciprus",
+        csatlakozas: "2004.05.01"
+    },
+    {
+        orszag: "Csehország",
+        csatlakozas: "2004.05.01"
+    },
+    {
+        orszag: "Dánia",
+        csatlakozas: "1973.01.01"
+    },
+    {
+        orszag: "Egyesült Királyság",
+        csatlakozas: "1973.01.01"
+    },
+    {
+        orszag: "Észtország",
+        csatlakozas: "2004.05.01"
+    },
+    {
+        orszag: "Finnország",
+        csatlakozas: "1995.01.01"
+    },
+    {
+        orszag: "Franciaország",
+        csatlakozas: "1958.01.01"
+    },
+    {
+        orszag: "Görögország",
+        csatlakozas: "1981.01.01"
+    },
+    {
+        orszag: "Hollandia",
+        csatlakozas: "1958.01.01"
+    },
+    {
+        orszag: "Horvátország",
+        csatlakozas: "2013.07.01"
+    },
+    {
+        orszag: "Írország",
+        csatlakozas: "1973.01.01"
+    },
+    {
+        orszag: "Lengyelország",
+        csatlakozas: "2004.05.01"
+    },
+    {
+        orszag: "Lettország",
+        csatlakozas: "2004.05.01"
+    },
+    {
+        orszag: "Litvánia",
+        csatlakozas: "2004.05.01"
+    },
+    {
+        orszag: "Luxemburg",
+        csatlakozas: "1958.01.01"
+    },
+    {
+        orszag: "Magyarország",
+        csatlakozas: "2004.05.01"
+    },
+    {
+        orszag: "Málta",
+        csatlakozas: "2004.05.01"
+    },
+    {
+        orszag: "Németország",
+        csatlakozas: "1958.01.01"
+    },
+    {
+        orszag: "Olaszország",
+        csatlakozas: "1958.01.01"
+    },
+    {
+        orszag: "Portugália",
+        csatlakozas: "1986.01.01"
+    },
+    {
+        orszag: "Románia",
+        csatlakozas: "2007.01.01"
+    },
+    {
+        orszag: "Spanyolország",
+        csatlakozas: "1986.01.01"
+    },
+    {
+        orszag: "Svédország",
+        csatlakozas: "1995.01.01"
+    },
+    {
+        orszag: "Szlovákia",
+        csatlakozas: "2004.05.01"
+    },
+    {
+        orszag: "Szlovénia",
+        csatlakozas: "2004.05.01"
+    }
+]
+
+document.write("Szorgalmi feladatok: <br><br>")
+
+function majusbanCsatlakoztak()
+{
+	let eredmenyek=[];
+	for(let i=0;i<EuropaiUnio.length;i++)
+    {
+    	
+    	if(EuropaiUnio[i].csatlakozas.substr(5,2)=="05")
+        {
+        	eredmenyek.push(EuropaiUnio[i].orszag)
+        }
+    }
+    return eredmenyek;
+}
+document.write("Májusban csatlakozott országok: "+majusbanCsatlakoztak())
+
+
+function utoljaraCsatlakozott()
+{
+	let legkesobbiEv=EuropaiUnio[0].csatlakozas.substr(0,4);
+    for(let i=1;i<EuropaiUnio.length;i++)
+    {
+    	if(EuropaiUnio[i].csatlakozas.substr(0,4)>legkesobbiEv)
+        {
+        	legkesobbiEv=EuropaiUnio[i].csatlakozas.substr(0,4);
+        }
+    }
+    let orszag="";
+    for(let i=0;i<EuropaiUnio.length;i++)
+    {
+    	if(EuropaiUnio[i].csatlakozas.substr(0,4)==legkesobbiEv)
+        {
+        	orszag=(EuropaiUnio[i].orszag);
+        }
+    }
+    return orszag;
+}
+
+document.write("<hr>")
+document.write("Legutoljára "+utoljaraCsatlakozott()+" csatlakozott az EU-hoz.")
+
+
+
+function csatlakozasiEvek()
+{
+	let evek=[];
+    for(let i=0;i<EuropaiUnio.length;i++)
+    {
+    	let szerepelE=false;
+    	for(let j=0;j<evek.length;j++)
+        {
+        	if(EuropaiUnio[i].csatlakozas.substr(0,4)==evek[j])
+            {
+            	szerepelE=true
+            }
+        }
+        if(szerepelE==false)
+        {
+        	evek.push(EuropaiUnio[i].csatlakozas.substr(0,4))
+        }
+    }
+    return evek;
+}
+document.write("<hr>")
+document.write("Ezekben az években csatlakoztak országok az Eu-ba: "+csatlakozasiEvek())
+document.write("<hr>")
+
+function evAlapjanKereso(ev)
+{
+	let eredmenyek=[];
+    for(let i=0;i<EuropaiUnio.length;i++)
+    {
+    	if(EuropaiUnio[i].csatlakozas.substr(0,4)==ev)
+        {
+        	eredmenyek.push(EuropaiUnio[i].orszag)
+        }
+    }
+    return eredmenyek;
+}
+
+document.write("A megadott évben ezek az országok csatlakoztak az EU-hoz: "+evAlapjanKereso("2004"));
+
+function csatlakozottE(orszag)
+{
+	let CsatlakozottE=false;
+	for(let i=0;i<EuropaiUnio.length;i++)
+    {
+    	if(EuropaiUnio[i].orszag==orszag)
+        {
+        	CsatlakozottE=true;
+        }
+    }
+    return CsatlakozottE
+}
+
+function eredmenyKiir(logikaiVizsgalat,igazUzenet,hamisUzenet)
+{
+	if(logikaiVizsgalat==true)
+    {
+    	document.write(igazUzenet)
+    }
+    else
+    {
+    	document.write(hamisUzenet)
+    }
+}
+
+document.write("<hr>")
+eredmenyKiir(csatlakozottE("Amerika"),"Csatlakozott","Nem csatlakozott")
+document.write("<hr>")
+
+function honapKereso(honap)
+{
+	let eredmenyek=0;
+    for(let i=0;i<EuropaiUnio.length;i++)
+    {
+    	if(EuropaiUnio[i].csatlakozas.substr(5,2)==honap)
+        {
+        	eredmenyek++;
+        }
+    }
+    return eredmenyek;
+}
+
+document.write("A megadott hónapban ennyien csatlakoztak az EU-hoz: "+honapKereso("05"));
+
+</script>
