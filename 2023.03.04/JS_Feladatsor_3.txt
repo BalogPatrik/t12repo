@@ -1,0 +1,197 @@
+<script>
+
+const Dolgozok = [{
+        nev: "Koaxk Ábel",
+        kor: 23,
+        fizetes: 400000,
+        beosztas: "Rendszergazda"
+    },
+    {
+        nev: "Zsíros B. Ödön",
+        kor: 45,
+        fizetes: 1200000,
+        beosztas: "Ügyvezető Igazgató"
+    },
+    {
+        nev: "Meg Győző",
+        kor: 32,
+        fizetes: 600000,
+        beosztas: "Marketing Manager"
+    },
+    {
+        nev: "Békés Csaba",
+        kor: 63,
+        fizetes: 180000,
+        beosztas: "Takarító"
+    },
+    {
+        nev: "Pofá Zoltán",
+        kor: 25,
+        fizetes: 300000,
+        beosztas: "Biztonsági Őr"
+    },
+    {
+        nev: "Fejet Lenke",
+        kor: 22,
+        fizetes: 220000,
+        beosztas: "Irodai Titkár"
+    },
+    {
+        nev: "Vak Cina",
+        kor: 30,
+        fizetes: 500000,
+        beosztas: "Üzem Orvos"
+    }
+]
+
+document.write("JS feladatsor 3<br><br>");
+document.write("1.feladat<br><br>")
+
+function hosszEllenor(szoveg)
+{
+	let elegE=false;
+    if(szoveg.length>=8)
+    {
+    	elegE=true
+    }
+    return elegE;
+}
+
+document.write("Teszt1: "+hosszEllenor("teszt"));
+document.write("<br>Teszt2: "+(hosszEllenor("feladatteszt")));
+document.write("<hr>");
+
+
+document.write("2.feladat<br><br>");
+function tajSzamEllenor(szamsor)
+{
+	let tajSzamE=false
+    let megvanE=false
+    for(let i=0;i<szamsor.length;i++)
+    {
+    	if(szamsor.length==9)
+        {
+        	megvanE=true
+        }
+    }
+    let parosokosszeg=0;
+    let paratlanokosszeg=0;
+    if(megvanE==true)
+    {
+    	for(let i=0;i<szamsor.length;i++)
+        {
+        	if(i%2==0)
+            {
+            	parosokosszeg=parosokosszeg+Number(szamsor[i]);
+            }
+        }
+        for(let i=0;i<szamsor.length;i++)
+        {
+        	if(i%2==1)
+            {
+            	paratlanokosszeg=paratlanokosszeg+Number(szamsor[i]);
+            }
+        }
+    }
+    let parosokx7=parosokosszeg*7;
+    let paratlanokx3=paratlanokosszeg*3;
+    let osszeg=parosokx7+paratlanokx3;
+    if(osszeg%10==szamsor[8])
+    {
+        tajSzamE=true;
+    }	
+    return tajSzamE;
+}
+document.write("Teszt1: "+tajSzamEllenor("040655330"));
+document.write("<br>Teszt2: "+tajSzamEllenor("111111111"));
+document.write("<br>Teszt3: "+tajSzamEllenor("037687210"));
+document.write("<br>Teszt4: "+tajSzamEllenor("019536646"));
+document.write("<hr>");
+
+
+document.write("3.feladat<br><br>");
+
+function tombTerjedelem(tomb)
+{
+    let maxErtek=tomb[0];
+    for(let i=0;i<tomb.length;i++)
+    {
+    	if(tomb[i]>maxErtek)
+        {
+        	maxErtek=tomb[i]
+        }
+    }
+    let minErtek=tomb[0];
+    for(let i=0;i<tomb.length;i++)
+    {
+    	if(tomb[i]<minErtek)
+        {
+        	minErtek=tomb[i]
+        }
+    }
+    let terjedelem=maxErtek-minErtek;
+    return terjedelem;
+}
+
+let vizsgaltTomb=[3, 5, 10, 16, 9];
+document.write("Teszt: "+tombTerjedelem(vizsgaltTomb));
+document.write("<hr>")
+
+
+document.write("4.feladat<br><br>");
+function legidosebbDolgozo(objektum)
+{
+	let maxIndex=0;
+	for(let i=1;i<objektum.length;i++)
+    {
+    	if(objektum[i].kor>objektum[maxIndex].kor)
+        {
+        	maxIndex=i;
+        }
+    }
+    return maxIndex;
+}
+document.write("Teszt: "+legidosebbDolgozo(Dolgozok));
+document.write("<hr>")
+
+document.write("5.feladat<br><br>");
+document.write("Fizetésemelés előtt: ");
+function regiFizetesek(objektum)
+{
+	for(let i=0;i<objektum.length;i++)
+    {
+    document.write(objektum[i].fizetes+" , ");
+    }
+}
+
+ujFizetesek(Dolgozok);
+function fizetesEmeles(objektum)
+{
+	let osszeg=0;
+	for(let i=0;i<objektum.length;i++)
+    {
+        osszeg=osszeg+objektum[i].fizetes;
+    }
+    let atlagFizetes=Math.round(osszeg/objektum.length);
+    for(let i=0;i<objektum.length;i++)
+	{
+        if(objektum[i].fizetes<atlagFizetes)
+        {
+        objektum[i].fizetes=objektum[i].fizetes+objektum[i].fizetes/10;
+        }
+    }
+}
+fizetesEmeles(Dolgozok);
+function ujFizetesek(objektum)
+{
+	for(let i=0;i<objektum.length;i++)
+    {
+    document.write(objektum[i].fizetes+" , ");
+    }
+}
+document.write("<br>Fizetésemelés után: ");
+ujFizetesek(Dolgozok);
+
+
+
+</script>
