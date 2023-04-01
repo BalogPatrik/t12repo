@@ -60,7 +60,7 @@
         function szamol()
         {
             let szemelyekszama=document.querySelector("#fo").value;
-            document.querySelector("#tej").innerHTML=szemelyekszama*0.2;
+            document.querySelector("#tej").innerHTML=(szemelyekszama*0.2).toFixed(1);
             document.querySelector("#tojas").innerHTML=szemelyekszama*2;
             document.querySelector("#cukor").innerHTML=szemelyekszama;
         }
