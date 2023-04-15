@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Vizsga feladat teszt</title>
+</head>
+
+<body>
+    <table id="testTable" class="table table-sm table-striped table-dark table-hover">
+        <thead>
+            <tr>
+                <td>Teszt neve</td>
+                <td>Input adat</td>
+                <td>Elvárt eredmény</td>
+                <td>Végeredmény</td>
+                <td>Sikeresség</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        //Ide kell beilleszteni a JS kódokat a teszteléshez
+
+        document.write("Név: Balog Patrik<br>");
+        document.write("Csapat: Team12<br>");
+        document.write("Képzés: Junior Frontend + Webfejlesztő<br>");
+        document.write("<hr>");
+
+
+        function KockaFelszin(a) {
+            return 6 * a * a;
+        }
+
+        document.write("Kocka felszíne: " + KockaFelszin(2) + " egység<sup>2</sup><br>");
+        document.write("Kocka felszíne: " + KockaFelszin(3) + " egység<sup>2</sup><br>");
+        document.write("Kocka felszíne: " + KockaFelszin(5) + " egység<sup>2</sup><br>");
+        document.write("<hr>");
+
+
+        function KockaTerfogat(a) {
+            return a ** 3;
+        }
+
+        document.write("Kocka térfogata: " + KockaTerfogat(2) + " egység<sup>3</sup><br>");
+        document.write("Kocka térfogata: " + KockaTerfogat(3) + " egység<sup>3</sup><br>");
+        document.write("Kocka térfogata: " + KockaTerfogat(5) + " egység<sup>3</sup><br>");
+        document.write("<hr>");
+
+
+        function PhErtek(vizsgaltErtek) {
+            if (vizsgaltErtek == 7) {
+                return "semleges";
+            }
+            else if (vizsgaltErtek < 7) {
+                return "savas";
+            }
+            else {
+                return "lugos";
+            }
+        }
+
+        document.write(PhErtek(9) + "<br>");
+        document.write(PhErtek(5.5) + "<br>");
+        document.write(PhErtek(7) + "<br>");
+        document.write("<hr>");
+
+
+        function ElsoNSzamOsszege(szamokMennyisege) {
+            let osszeg = 0;
+            for (let i = 0; i <= szamokMennyisege; i++) {
+                osszeg += i;
+            }
+            return osszeg;
+        }
+
+        document.write("Első 3 szám összege: " + ElsoNSzamOsszege(3) + "<br>");
+        document.write("Első 10 szám összege: " + ElsoNSzamOsszege(10) + "<br>");
+        document.write("Első 21 szám összege: " + ElsoNSzamOsszege(21) + "<br>");
+        document.write("<hr>");
+
+
+        function MaxParos(vizsgaltTomb) {
+            let parosok = [];
+            for (let i = 0; i < vizsgaltTomb.length; i++) {
+                if (vizsgaltTomb[i] % 2 == 0) {
+                    parosok.push(vizsgaltTomb[i]);
+                }
+            }
+            let maxErtek = parosok[0];
+            for (let i = 0; i < parosok.length; i++) {
+                if (parosok[i] > maxErtek) {
+                    maxErtek = parosok[i];
+                }
+            }
+            return maxErtek;
+        }
+
+        let tomb1 = [12, 3, 7, 19, 21];
+        let tomb2 = [28, 14, 2, 42, 69];
+        let tomb3 = [32, 21, 54, 33, 21];
+
+        document.write(MaxParos(tomb1) + "<br>");
+        document.write(MaxParos(tomb2) + "<br>");
+        document.write(MaxParos(tomb3) + "<br>");
+        document.write("<hr>");
+
+
+        function MaganHangzokSzama(vizsgaltSzoveg) {
+            let mghkSzama = 0;
+            let maganhangzok = ['a', 'á', 'e', 'é', 'i', 'í', 'o', 'ó', 'ö', 'ő', 'u', 'ú', 'ü', 'ű', 'A', 'Á', 'E', 'É', 'I', 'Í', 'O', 'Ó', 'Ö', 'Ő', 'U', 'Ú', 'Ü', 'Ű'];
+            for (let i = 0; i < vizsgaltSzoveg.length; i++) {
+                for (let j = 0; j < maganhangzok.length; j++) {
+                    if (vizsgaltSzoveg[i] == maganhangzok[j]) {
+                        mghkSzama++;
+                    }
+                }
+            }
+            return mghkSzama;
+        }
+
+        document.write(MaganHangzokSzama("Szeretem a programozás") + "<br>");
+        document.write(MaganHangzokSzama("Géza kék az ég") + "<br>");
+        document.write(MaganHangzokSzama("Répa, retek, mogyoró") + "<br>");
+        document.write("<hr>");
+
+
+        function SzovegVisszafele(szoveg) {
+            let feldaraboltSzoveg = szoveg.split("");
+            let visszafeleSzoveg = feldaraboltSzoveg.reverse();
+            let egybeFuzes = visszafeleSzoveg.join("");
+            return egybeFuzes;
+        }
+
+        document.write(SzovegVisszafele("Szeretem a programozás") + "<br>");
+        document.write(SzovegVisszafele("Géza kék az ég") + "<br>");
+        document.write(SzovegVisszafele("Répa, retek, mogyoró") + "<br>");
+        document.write("<hr>");
+
+
+        function CegAtlagEletkor(vizsgaltObjektumTomb) {
+            let korOsszeg = 0;
+            for (let i = 0; i < vizsgaltObjektumTomb.length; i++) {
+                korOsszeg += Number(vizsgaltObjektumTomb[i].kor);
+            }
+            return Math.round(korOsszeg / vizsgaltObjektumTomb.length);
+        }
+
+        document.write("A cég átlag életkora: " + CegAtlagEletkor(Dolgozok) + " év");
+        document.write("<hr>");
+
+
+
+    </script>
+    <script src="tesztFile.js"></script>
+</body>
+
+</html>
