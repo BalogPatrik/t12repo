@@ -47,7 +47,7 @@ var tomb=[10, 23,12, 24, 31, 33, 42, 20]
 console.log(HarommalOszthatokSzama(tomb));
 
 function Nyeroszamok(mennyiseg:number,alsoHatar:number,felsoHatar:number):number[]{
-    var lottoSzamok=[];
+    var lottoSzamok:number[]=[];
 	for(var i:number=0;i<mennyiseg;i++){
     	var generaltSzam:number=Math.round(Math.random()*(felsoHatar-alsoHatar)+alsoHatar);
         var szerepelE=false;
