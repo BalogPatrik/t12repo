@@ -1,0 +1,28 @@
+<h1>Dolgozok objektum</h1>
+
+<table class="table table-dark table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Név</th>
+            <th>Kor</th>
+            <th>Fizetés</th>
+            <th>Beosztás</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dolgozo of Dolgozok">
+            <td>
+                {{dolgozo.nev}}
+            </td>
+            <td>
+                {{dolgozo.kor}}
+            </td>
+            <td>
+                {{dolgozo.fizetes}}
+            </td>
+            <td>
+                {{dolgozo.beosztas}}
+            </td>
+        </tr>
+    </tbody>
+</table>

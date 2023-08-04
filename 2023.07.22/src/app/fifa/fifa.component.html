@@ -1,0 +1,22 @@
+<h1>Fifa</h1>
+
+<table class="table table-dark table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Ország</th>
+            <th>Helyezés</th>
+            <th>Változás</th>
+            <th>Pont</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let elem of megjelenitendoAdatok">
+            <td>{{elem.orszag}}</td>
+            <td>{{elem.helyezes}}</td>
+            <td>{{elem.valtozas}}</td>
+            <td>{{elem.pont}}</td>
+        </tr>
+    </tbody>
+
+</table>

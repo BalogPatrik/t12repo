@@ -1,0 +1,21 @@
+<h1>Snooker</h1>
+
+<table class="table table-dark table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Helyezés</th>
+            <th>Név</th>
+            <th>Ország</th>
+            <th>Nyeremény</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let elem of megjelenitendoAdatok">
+            <td>{{elem.helyezes}}</td>
+            <td>{{elem.nev}}</td>
+            <td>{{elem.orszag}}</td>
+            <td>{{elem.nyeremeny}}</td>
+        </tr>
+    </tbody>
+
+</table>

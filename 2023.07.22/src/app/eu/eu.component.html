@@ -1,0 +1,16 @@
+<h1>Eu országok</h1>
+
+<table class="table table-dark table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Ország</th>
+            <th>Csatlakozás dátuma</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let elem of EuropaiUnio">
+            <td>{{elem.orszag}}</td>
+            <td>{{elem.csatlakozas}}</td>
+        </tr>
+    </tbody>
+</table>
